@@ -25,6 +25,7 @@ NextJs uses file system based routing
 - Dynamic Routing : if you want to make a route of /dashboard/overview/nameOfPerson => src or app/dashboard/overview/[name]
 You can get Dynamic route name by fetching params as prop value in the dynamic Component
 The folder name will match with the route name , page js should be present in every folder
+
 Two ways of routing are : Linking and Navigation
 Difference between Linking and navigating to a page is that Link don't affect the website at all whereas navigation affects the website
 
