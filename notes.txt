@@ -1,0 +1,39 @@
+Rendering means converting your code into HTML
+PreRendering means generate HTML in advance on the server side and consist of Server side rendering(SSR) and static generation
+-> In Static Generation HTML is generated at build time and is REUSED FOR EACH REQUEST. 
+-> With Static Rendering, both Server and client components can be prerenderd on the server at the build time
+-> SSR is the pre-rednering method that generates the HTML is generated on EACH REQUEST.
+
+NextJs is react framework for single page webApps ,nextJs internally use Reactjs
+Problem in react is that it needs too many external libraries for its basic functionality like routing,Internal Css support,middleware,optimising build etc.
+In nextjs it all comes preInstalled plus it has the ability of server side rendering and can be useful in SEO optimisation.
+
+Server Component: 
+- These Component render on the server side, 
+- By default all Components are server Component in nextJs
+- These Component are closer to backend so backend related code should be written in these Component
+Client Component:
+- These Component render on the Client side.
+- can make Client Component by using 'use client' directive
+- All UI realted code and events should be written in these Component
+NOTE: -These two Component can be used together . Make a practice to make Component that involves data from the backend as server Component
+     and all UI interactive actions,button clicks,search bar,browser APIs functionality Component as client Component
+
+NextJs uses file system based routing
+- Normal Routing : if you want to make a route of /dashboard => src or app/dashboard/page.js
+- Nested Routing : if you want to make a route of /dashboard/overview => src or app/dashboard/overview/page.js
+- Dynamic Routing : if you want to make a route of /dashboard/overview/nameOfPerson => src or app/dashboard/overview/[name]
+You can get Dynamic route name by fetching params as prop value in the dynamic Component
+The folder name will match with the route name , page js should be present in every folder
+Two ways of routing are : Linking and Navigation
+Difference between Linking and navigating to a page is that Link don't affect the website at all whereas navigation affects the website
+
+NOTE: -When passing information to a component you have to receive it as params keyword only
+Layout files are used to provide a common Component to all Component like header,sidebar
+middleware is also part of nextJs routing
+
+Catch-all segments: This is used for getting all the routes inside another route. 
+- Suppose /study is the route. Then make another folder named [...lecture] this will run every time user enters /study/anything and no page not found error will come
+- data in the segments component will come in an array if the route is /study/anything/something/ ... so on.  
+
+No internal style is availaible in nextjs only global and inline css is there

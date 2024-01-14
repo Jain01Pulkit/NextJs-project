@@ -1,95 +1,37 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-
+"use client";
+/**
+ * you have to use client directive when working with dom manipulation like button events, input events etc. ,and using hooks
+ * otherwise nextJs will treat that component as a server component and use client directive declaration will always be in the first line of component
+ * and all the child component will inherit thi use client directive no need to declare in those component
+ * When using only Link component you can omit use client if there is no dom manipulation.
+ * page.js is the default file name that you have to give to a file inside nextjs
+ * folder name of the file will define the route
+ * difference between Linking and navigating to a page is that Link don't affect the website at all wherease navigation affects the website
+ * that's why when using navigation we need to write 'use client' directive
+ */
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 export default function Home() {
+  const router = useRouter();
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main>
+      <h1>Home Page</h1>
+      <Link href="/login">Link to Login</Link>
+      <br></br>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Link href="/about">Link to About</Link>
+      <br></br>
+      <Link href="/productlist">Link to Product List</Link>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <br></br>
+      <button onClick={() => router.push("/login")}>
+        Click me to navigate to login
+      </button>
+      <br></br>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <button onClick={() => router.push("/about")}>
+        Click me to navigate to about
+      </button>
     </main>
-  )
+  );
 }
